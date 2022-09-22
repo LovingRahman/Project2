@@ -4,34 +4,36 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.EnableMBeanExport;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
-@NoArgsConstructor
+
 @AllArgsConstructor
 @Data
 @Entity
-
+@NoArgsConstructor
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartid;
 
-
+    private Integer localquantity;
 
 
     @OneToMany
-    @JoinColumn(name = "cart_id", referencedColumnName = "cartid")
-    private List<ProductinCart> cartProduct;
+    private List<Product> productincart;
 
     @JsonIgnore
-    @OneToOne(targetEntity = Person.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Person.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "person_id")
     private Person person;
 
-    private Integer quantity;
+
     private Boolean status = true;
+
+
+
 
 
 

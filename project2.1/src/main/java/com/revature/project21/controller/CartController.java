@@ -11,8 +11,8 @@ public class CartController {
     @Autowired
     CartService cartService;
 
-    @PostMapping ("products/{productid}/people/{personid}/quantity/{quantity}")
-    public Cart addToCart(@RequestParam Long productid, @RequestParam Integer quantity){
-        return cartService.addToCart(productid, quantity);
+    @PostMapping ("/products/{productid}/quantity/{quantity}")
+    public Cart addToCart(@RequestParam Long cartid,@RequestParam Long productid, @RequestParam Integer quantity){
+        return cartService.addToCart(cartid,productid, quantity);
     }
 }

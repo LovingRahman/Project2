@@ -27,8 +27,8 @@ public class PersonController {
 //       return personService.addToCart(personid, productid);
 //    }
 
-    @GetMapping
-    public Person showCart(@RequestBody Long personid){
-        return (Person) personService.showCart(personid);
-    }
+//    @GetMapping
+//    public Person showCart(@RequestBody Long personid){
+//        return (Person) personService.showCart(personid);
+//    }
 }

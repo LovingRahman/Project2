@@ -2,6 +2,7 @@ package com.revature.project21.service;
 
 import com.revature.project21.entity.Cart;
 import com.revature.project21.entity.Person;
+import com.revature.project21.entity.Product;
 import com.revature.project21.repository.Cartrepository;
 import com.revature.project21.repository.Personrepository;
 import com.revature.project21.repository.Productrepository;
@@ -20,28 +21,31 @@ public class CartService {
 
     @Autowired
     Cartrepository cartrepository;
-public Cart createCart(Long personid, Integer quantity){
+
+public Cart createCart(Long personid){
     Person person = personrepository.findById(personid).get();
 
     Cart cart= new Cart();
     cart.setPerson(person);
+    cart.setStatus(true);
+    cart.setProductincart(new ArrayList<>());
 
-    cart.setCartProduct(new ArrayList<>());
    return cartrepository.save(cart);
 
 }
-public Cart addToCart(Long productid, Integer quantity){
 
-    Cart cart = createCart(productid, quantity);
+    public Cart addToCart(Long personid,Long productid, Integer quantity){
+        Cart cart = createCart(personid);
+        Product product = productrepository.findById(productid).get();
+        cart.setLocalquantity(quantity);
 
-    cartrepository.save(cart);
 
-    return cart;
-}
-public Cart seeCartItems(Person person){
-    List<Cart> cartList = cartrepository.findByPerson(person);
-    return (Cart) cartList;
-}
+        cartrepository.save(cart);
+        return cart;
+
+    }
+
+
 
 
 }

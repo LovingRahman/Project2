@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface Cartrepository extends JpaRepository<Cart, Long > {
-    List<Cart> deleteByPerson(Person person);
+//public Cart getCartByStatus(Long personid, Boolean status);
 
-    List<Cart> findByPerson(Person person);
+
 }

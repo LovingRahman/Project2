@@ -42,7 +42,5 @@ public class PersonService {
 //
 //    }
 
-    public List<Product> showCart(Long personid){
-        return productrepository.findByBuyerId(personid);
-    }
+
 }
