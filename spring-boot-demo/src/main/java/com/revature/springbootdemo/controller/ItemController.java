@@ -25,6 +25,20 @@ public class ItemController {
         return itemService.getAll();
     }
 
+    @GetMapping("/status")
+    public List<Item> getCart(@RequestBody String status) {
+        // get by status in service class
+        System.out.println(status);
+        return itemService.getByStatus(status);
+    }
+
+    @GetMapping("/name")
+    public List<Item> getName(@RequestBody String name) {
+        // get by status in service class
+        System.out.println(name);
+        return itemService.getByStatus(name);
+    }
+
     @GetMapping("/{id}")
     public Item getById(@PathVariable("id") Long id) {
         return itemService.getById(id);

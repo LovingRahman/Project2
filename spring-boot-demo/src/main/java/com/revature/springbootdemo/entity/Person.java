@@ -16,7 +16,7 @@ import java.util.List;
 @Entity
 public class Person {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
    // @Column(unique = true, nullable = false)
     @Column(unique = true)
@@ -29,14 +29,16 @@ public class Person {
     // set up column in item table, keesp track of which preson owns this item - referencing id of person table
     // no longer works after many to many relationship
     @JoinColumn(name = "person_fk", referencedColumnName = "id")
-    List<Item> boughtItems;
+    List<Item> cartItems;
+    // List<Item> boughtItems;
 
     public Person() {
         // initialize myItems to be an empty arraylist
-        boughtItems = new ArrayList<>();
+        //boughtItems = new ArrayList<>();
+        cartItems = new ArrayList<>();
     }
     public void buy(Item item) {
-        boughtItems.add(item);
+        cartItems.add(item);
     }
 }
 

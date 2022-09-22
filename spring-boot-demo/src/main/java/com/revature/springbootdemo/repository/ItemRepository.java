@@ -21,9 +21,14 @@ public interface ItemRepository extends JpaRepository<Item, Long> { // Long is f
     // extra methods
     List<Item> findByName(String name);
 
+    // we don't need @Query for status --- can take out
+    @Query(value = "SELECT * FROM item where status = '?'1", nativeQuery = true)
+    List<Item> findByStatus(String status);
+
     // here we make a custom query
     @Query(value = "SELECT * FROM item where person_fk = ?1", nativeQuery = true)
     // ?1 refers to parameter owner_id, is just a place holder
     public List<Item> findBoughtItems(Long owner_id);
+
 
 }

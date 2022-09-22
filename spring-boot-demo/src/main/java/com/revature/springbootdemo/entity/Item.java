@@ -29,6 +29,8 @@ public class Item {
     private String description;
     private Double price;
     private Integer quantity;
+    // status
+    private String status;
 
 
 }

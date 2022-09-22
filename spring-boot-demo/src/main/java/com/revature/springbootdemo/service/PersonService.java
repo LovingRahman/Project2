@@ -44,7 +44,7 @@ public class PersonService {
         // get items that correspond to this persons id
 
         // if we added more parameters, the syntax would be ?2, ?3, and so on
-        return personRepository.findById(personId).get().getBoughtItems();
+        return personRepository.findById(personId).get().getCartItems();
 
     }
 

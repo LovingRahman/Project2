@@ -36,6 +36,7 @@ public class PersonController {
         return personService.buy(personId, itemId);
     }
 
+    // @GetMapping("{personId}/items/status=true")
     @GetMapping("{personId}/items")
     public List<Item> getBoughtItems(@PathVariable("personId") Long id) {
         return personService.getBoughtItems(id);

@@ -26,6 +26,18 @@ public class ItemService {
         return itemRepository.findById(id).get();
     }
 
+    public List<Item> getByStatus(String status) {
+        System.out.println(status);
+
+        return itemRepository.findByStatus(status);
+
+                // repository and put findByStatus
+    }
+    public Item getByName(String name) {
+        return (Item) itemRepository.findByName(name);
+    }
+
+
     public List<Item> getAll() {
         return itemRepository.findAll();
     }
