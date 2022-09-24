@@ -1,9 +1,12 @@
 package com.revature.project21.controller;
 
+import com.revature.project21.entity.Cart;
 import com.revature.project21.entity.Person;
 import com.revature.project21.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/people")
@@ -18,17 +21,29 @@ public class PersonController {
 
     }
 
-    @PutMapping
+    @PostMapping("/update/{personid}")
     public Person update(@RequestBody Person person){
         return personService.update(person);
     }
-//    @PatchMapping("/{personid}/products/{productid}")
-//    public Person addToCart(@PathVariable Long personid, @PathVariable Long productid){
-//       return personService.addToCart(personid, productid);
-//    }
 
-//    @GetMapping
-//    public Person showCart(@RequestBody Long personid){
-//        return (Person) personService.showCart(personid);
-//    }
+    @GetMapping("/{id}")
+    public Person getById(@PathVariable("id") Long id){
+        return personService.getById(id);
+    }
+
+    @PatchMapping("/{personid}/products/{productid}")
+    public Cart addToCart(@PathVariable("personid")Long personid, @PathVariable("productid") Long productid, @RequestParam(value = "quantity", required = false)Integer quantity){
+        if(quantity == null){
+            quantity = 1;
+        }
+        return personService.addTocart(personid, productid, quantity);
+    }
+    @PatchMapping("/{personid}")
+    public void checkout(@PathVariable("personid") Long personid){
+        personService.checkout(personid);
+    }
+    @GetMapping
+    public List<Cart> getAllPreviousOrders(@RequestBody Long personid){
+        return personService.getAllPreviousOrder(personid);
+    }
 }

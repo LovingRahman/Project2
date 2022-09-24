@@ -1,36 +1,52 @@
 package com.revature.project21.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @AllArgsConstructor
 @Data
 @Entity
-@NoArgsConstructor
-public class Cart {
+
+public class Cart implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cartid;
+    private Long id;
 
     private Integer localquantity;
 
-
+//for an given cart we're giong to have multiple product
     @OneToMany
-    private List<Product> productincart;
-
-    @JsonIgnore
-    @ManyToOne(targetEntity = Person.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "person_id")
-    private Person person;
+    private List<ProductCart> productsInCart;
 
 
-    private Boolean status = true;
+    public Cart(){
+        this.productsInCart = new ArrayList<ProductCart>();
+    }
+
+    public void addToCart(Product newProduct, int localquantity){
+        for(int i = 0; i <productsInCart.size(); i++){
+            ProductCart current = productsInCart.get(i);
+            if(current.getProduct().getId()== newProduct.getId()){
+                current.setQuantity(current.getQuantity() + localquantity);
+                productsInCart.set(i,current);
+                return;
+            }
+        }
+        productsInCart.add(new ProductCart(newProduct, localquantity));
+    }
+
+
+
+
+
+
 
 
 

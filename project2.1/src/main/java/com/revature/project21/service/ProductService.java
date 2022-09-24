@@ -26,7 +26,7 @@ public class ProductService {
 
     }
 
-    public Product findById(Long productid){
+    public Product getById(Long productid){
         return productrepository.findById(productid).get();
     }
 
