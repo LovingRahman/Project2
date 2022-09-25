@@ -14,12 +14,29 @@ public class PersonController {
         @Autowired
         PersonService personService;
 
+    @PostMapping()
+    public Person auth(@RequestBody Person person, @RequestParam(value = "auth", required = true) String authType) {
+        // required = true guarantees that we need a request parameter with the key "auth"
+        if(authType.equals("login")) {
+            return personService.login(person);
+        } else if (authType.equals("register")) {
+            return personService.register(person);
+        } else {
+            return null;
+        }
+
+    }
+
+
+
         // adding a new person:
-        @PostMapping
+      /*  @PostMapping
         public Person add(@RequestBody Person person) {
             personService.add(person);
             return person;
         }
+
+       */
 
         // get a person by id:
         @GetMapping("/{id}")

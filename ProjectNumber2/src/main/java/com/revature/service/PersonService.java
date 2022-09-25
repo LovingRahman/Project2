@@ -17,9 +17,11 @@ public class PersonService {
     @Autowired
     CartService cartService;
 
-    public void add(Person person) {
+  /*  public void add(Person person) {
         personRepository.save(person);
     }
+
+   */
 
     public Person getById(Long id) {
         return personRepository.findById(id).get();
@@ -43,7 +45,19 @@ public class PersonService {
         // persist
         personRepository.save(person);
     }
+
+    public Person register(Person person) {
+        personRepository.save(person);
+        return person;
+    }
+    public Person login(Person person) {
+        Person personDB = personRepository.findById(person.getId()).get();
+        if (person.getPassword().equals(personDB.getPassword())) return personDB;
+        else return null;
+    }
+
 }
+
 
 // 1 banana left
 // user A puts 1 banana in cart

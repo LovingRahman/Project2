@@ -17,6 +17,7 @@ public class Person {
     @GeneratedValue
     private Long id;
     private String name;
+    private String password;
 
     // One cart which is their current cart
     @OneToOne(targetEntity = Cart.class, cascade = CascadeType.ALL)
