@@ -20,12 +20,15 @@ import { CookieModule } from 'ngx-cookie';
 import { LogoutComponent } from './logout/logout.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { AuthGuard } from './auth.guard';
+import { GetallproductsComponent } from './getallproducts/getallproducts.component';
+//import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { ProfileComponent } from './profile/profile.component';
 
 // set up our routes:
 const routes:Routes = [
   // automatically go to /pets if we navigate to "/"
   // we want pathMatch to be full when redirecting from empty locations
-  {path: "", redirectTo: "/pets", pathMatch: "full"},
+  // {path: "", redirectTo: "/pets", pathMatch: "full"},
   // when go to /pets, we want to display the PetsComponent
   {path: 'pets', component: PetsComponent},
   {path: 'add', component: AddPetComponent},
@@ -37,7 +40,12 @@ const routes:Routes = [
   // before we activate this route, first use our guard to check if we are logged in:
   {path: "adopted", component: AdoptedComponent, canActivate:[AuthGuard]},
   {path: "logout", component: LogoutComponent},
-  {path: "wishlist", component: WishlistComponent}
+  {path: "wishlist", component: WishlistComponent},
+  {path: "Product_Page", component: GetallproductsComponent},
+  {path: "products/:id", component: GetallproductsComponent},
+  //{path: "carts", component: AddToCartComponent},
+  {path: "profile", component: ProfileComponent}
+
 ]
 
 @NgModule({
@@ -54,7 +62,10 @@ const routes:Routes = [
     RegisterComponent,
     AdoptedComponent,
     LogoutComponent,
-    WishlistComponent
+    WishlistComponent,
+    GetallproductsComponent,
+    //AddToCartComponent,
+    ProfileComponent
   ],
   // whatever modules we need to import, we'll include those in this array:
   imports: [
@@ -65,7 +76,7 @@ const routes:Routes = [
     FormsModule,
     // configure the router module to use the routes that we defined above:
     RouterModule.forRoot(routes),
-    CookieModule
+    CookieModule.withOptions()
   ],
   providers: [],
   // root component of the app:

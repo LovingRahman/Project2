@@ -1,0 +1,31 @@
+<div>
+    <h1>Add to Cart</h1>
+    <label for = "quantity">Quantity</label>
+    <input type = "text" id = "quantity" [(ngModel)] = "quantity"/>
+</div>
+
+<div>
+    <h3>Cart</h3>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </thead>
+        <tbody>
+            tr is the element that we want to repeat, so that's where we put the ngFor directive:
+            <tr  class = "product" routerLink="/{personId}/products/{productId}"   *ngFor="let person of people">
+                For each indiv. pet, we render some td elements to show the individual properties:
+
+                <td>{{current}}</td>
+                <td>{{product.productId}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

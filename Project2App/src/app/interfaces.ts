@@ -20,21 +20,21 @@ export interface Product {
     description: String,
     price: Number,
     quantity: Number,
-    productcartlist: ProductCart[],
+    productcartlist?: ProductCart[],
 
 }
 
 export interface Cart {
     id?: Number,
-    productsInCart: ProductCart[],
+    productsInCart?: ProductCart[],
 
 }
 
 export interface Person {
     id?: Number,
     name?:String,
-    username:String,
-    password: String,
+    username?:String,
+    password?: String,
     address?:String,
     email?:String,
     current?:Cart,

@@ -28,11 +28,11 @@ export class AdoptedComponent implements OnInit {
     //   this.router.navigate(["/pets"]);
     // }
 
-    this.personService.getAdopted(userId).subscribe(
-      returnVal => {
-        this.adopted = returnVal;
-      }
-    )
+    // this.personService.getAdopted(userId).subscribe(
+    //   returnVal => {
+    //     this.adopted = returnVal;
+    //   }
+    // )
    
   }
 

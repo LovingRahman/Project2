@@ -78,13 +78,13 @@ export class PetComponent implements OnInit {
     this.router.navigate(['/pets'])
   }
 
-  adopt() {
-    this.personService.adopt(this.userId, this.pet.id).subscribe(
-      returnVal => {
-        this.router.navigate(["/adopted"])
-      }
-    )
-  }
+  // adopt() {
+  //   this.personService.adopt(this.userId, this.pet.id).subscribe(
+  //     returnVal => {
+  //       this.router.navigate(["/adopted"])
+  //     }
+  //   )
+  // }
 
   // store for guests:
   wishList() {
