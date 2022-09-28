@@ -21,7 +21,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { AuthGuard } from './auth.guard';
 import { GetallproductsComponent } from './getallproducts/getallproducts.component';
-//import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { ProfileComponent } from './profile/profile.component';
 
 // set up our routes:
@@ -31,7 +31,7 @@ const routes:Routes = [
   // {path: "", redirectTo: "/pets", pathMatch: "full"},
   // when go to /pets, we want to display the PetsComponent
   {path: 'pets', component: PetsComponent},
-  {path: 'add', component: AddPetComponent},
+  {path: 'add', component: AddToCartComponent},
   // adding an id parameter here to indicate which pet we want to view here:
   {path: 'pet/:id', component: PetComponent},
   {path: 'instructions', component: InstructionsComponent},
@@ -43,7 +43,7 @@ const routes:Routes = [
   {path: "wishlist", component: WishlistComponent},
   {path: "Product_Page", component: GetallproductsComponent},
   {path: "products/:id", component: GetallproductsComponent},
-  //{path: "carts", component: AddToCartComponent},
+  {path: "carts", component: AddToCartComponent},
   {path: "profile", component: ProfileComponent}
 
 ]
@@ -64,7 +64,7 @@ const routes:Routes = [
     LogoutComponent,
     WishlistComponent,
     GetallproductsComponent,
-    //AddToCartComponent,
+    AddToCartComponent,
     ProfileComponent
   ],
   // whatever modules we need to import, we'll include those in this array:
