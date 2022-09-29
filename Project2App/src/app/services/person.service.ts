@@ -31,12 +31,12 @@ export class PersonService {
     
   }
 
-  public checkout(personId?: Number) {
+  public checkout(personId?: Number):Observable<Person>{
     return this.http.patch<Person>(`${url}/people/${personId}`,{});
   }
 
   public getPastOrder(personId: Number): Observable<Person>{
-    return this.http.get<Person>(`${url}/people/previous/${personId}`)
+    return this.http.get<Person>(`${url}/people/previous/${personId}`);
   }
 
   public updateProfile(person:Person): Observable<Person>{

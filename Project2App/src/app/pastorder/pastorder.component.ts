@@ -11,23 +11,24 @@ import { CookieService } from 'ngx-cookie';
   styleUrls: ['./pastorder.component.css']
 })
 export class PastorderComponent implements OnInit {
-  pastOrder!:Person;
-  previous!:Cart[];
+  person!:Person;
   personId!: Number;
+  previous!: Cart[];
 
   constructor(private personServices: PersonService, private cookieService: CookieService) { }
 
   ngOnInit(): void {
-    this.personId = Number(this.cookieService.get("userId"));
-    this.getPastOrder();
-    this.previous = this.pastOrder.previous!;
-
+    let personId = Number(this.cookieService.get("userId"));
+    this.getPastOrder(personId);
   }
 
-  getPastOrder(){
-    this.personServices.getPastOrder(this.personId).subscribe(
+  getPastOrder(x:Number){
+    console.log("You bought stuff");
+    console.log(x);
+    this.personServices.getById(x).subscribe(
       returnedPerson => {
-        this.pastOrder = returnedPerson;
+        this.previous! = returnedPerson.previous!;
+        console.log(this.previous);
       }
     )
   }

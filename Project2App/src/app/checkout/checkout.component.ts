@@ -23,7 +23,9 @@ export class CheckoutComponent implements OnInit {
 
   checkout(){
     console.log("You're checking out");
-    this.personService.checkout(this.personId);
+    this.personService.checkout(this.personId).subscribe(
+      
+    );
   }
 
 }

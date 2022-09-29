@@ -1,20 +1,12 @@
-<!-- <h1>Previous Orders:</h1>
+<h1>Previous Orders:</h1>
 
 <table *ngIf = "true">
     <thead>
-        <th>Id</th>
-        <th>Product Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Quantity</th>
     </thead>
      <tbody>
-        <tr  class = "pastOrder"   *ngFor="let pastOrder of previous.productsInCart.product"> 
-            <td>{{pastOrder.previous.productsInCart.product.id}}</td>
-            <td>{{pastOrder.product.name}}</td>
-            <td>{{pastOrder.product.description}}</td>
-            <td>{{pastOrder.product.price}}</td>
-            <td>{{pastOrder.quantity}}</td>
+        <tr> 
+            <app-pastcart *ngFor="let cart of previous" [cart] = "cart">
+            </app-pastcart>
         </tr>
     </tbody>
-</table> -->
+</table>

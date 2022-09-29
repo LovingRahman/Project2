@@ -27,6 +27,7 @@ import { CurrentCartComponent } from './current-cart/current-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PastorderComponent } from './pastorder/pastorder.component';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
+import { PastcartComponent } from './pastcart/pastcart.component';
 
 // set up our routes:
 const routes:Routes = [
@@ -76,7 +77,8 @@ const routes:Routes = [
     CurrentCartComponent,
     CheckoutComponent,
     PastorderComponent,
-    UpdateprofileComponent
+    UpdateprofileComponent,
+    PastcartComponent
   ],
   // whatever modules we need to import, we'll include those in this array:
   imports: [
