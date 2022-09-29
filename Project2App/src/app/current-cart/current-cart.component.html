@@ -1,0 +1,23 @@
+<h1>Current Cart:</h1>
+
+<table *ngIf = "current">
+    <thead>
+        <th>Id</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+
+        <!--Ask Rory hw to show empty cart-->
+    </thead>
+    <tbody>
+        <tr  class = "current"   *ngFor="let productcart of current.productsInCart"> -->
+            <td>{{productcart.product.id}}</td>
+            <td>{{productcart.product.name}}</td>
+            <td>{{productcart.product.description}}</td>
+            <td>{{productcart.product.price}}</td>
+            <td>{{productcart.quantity}}</td>
+        </tr>
+    </tbody>
+    <!-- <button (click) = "checkout()">Checkout</button> -->
+</table>

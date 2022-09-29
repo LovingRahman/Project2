@@ -1,0 +1,16 @@
+<div>
+    <h1>Update Profile</h1>
+    <label for = "person-name">Name:</label>
+    <input type = "text" id = "person-name" [(ngModel)] = "person.name"/>
+    <br />
+    
+    <label for = "person-address">Address:</label>
+    <input type = "text" id = "person-address" [(ngModel)] = "person.address"/>
+    <br />
+
+    <label for = "person-email">Email:</label>
+    <input type = "text" id = "person-email" [(ngModel)] = "person.email"/>
+    <br />
+
+    <button type="button" (click) = "updateProfile(person)">Update</button>
+</div>

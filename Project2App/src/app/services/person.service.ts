@@ -22,7 +22,7 @@ export class PersonService {
   }
 
   public addToCart(personId: Number, productId: Number, quantity: Number): Observable<Cart> {
-    return this.http.patch<Person>(`${url}/people/${personId}/products/${productId}`,{});
+    return this.http.patch<Person>(`${url}/people/${personId}/products/${productId}?quantity=${quantity}`,{});
 
   }
 
@@ -30,6 +30,19 @@ export class PersonService {
     return this.http.get<Person>(`${url}/people/${personId}`);
     
   }
+
+  public checkout(personId?: Number) {
+    return this.http.patch<Person>(`${url}/people/${personId}`,{});
+  }
+
+  public getPastOrder(personId: Number): Observable<Person>{
+    return this.http.get<Person>(`${url}/people/previous/${personId}`)
+  }
+
+  public updateProfile(person:Person): Observable<Person>{
+    return this.http.patch<Person>(`${url}/people/update`,person);
+  }
+
 
   
 }

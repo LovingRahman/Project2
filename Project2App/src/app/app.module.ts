@@ -23,6 +23,10 @@ import { AuthGuard } from './auth.guard';
 import { GetallproductsComponent } from './getallproducts/getallproducts.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CurrentCartComponent } from './current-cart/current-cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { PastorderComponent } from './pastorder/pastorder.component';
+import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 
 // set up our routes:
 const routes:Routes = [
@@ -34,7 +38,7 @@ const routes:Routes = [
   {path: 'add', component: AddToCartComponent},
   // adding an id parameter here to indicate which pet we want to view here:
   {path: 'pet/:id', component: PetComponent},
-  {path: 'instructions', component: InstructionsComponent},
+  {path: 'update', component: UpdateprofileComponent},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
   // before we activate this route, first use our guard to check if we are logged in:
@@ -44,7 +48,10 @@ const routes:Routes = [
   {path: "Product_Page", component: GetallproductsComponent},
   {path: "products/:id", component: GetallproductsComponent},
   {path: "carts", component: AddToCartComponent},
-  {path: "profile", component: ProfileComponent}
+  {path: "profile", component: ProfileComponent},
+  {path: "current", component: CurrentCartComponent},
+  {path: "checkout", component: CheckoutComponent},
+  {path: "pastorder", component: PastorderComponent}
 
 ]
 
@@ -65,7 +72,11 @@ const routes:Routes = [
     WishlistComponent,
     GetallproductsComponent,
     AddToCartComponent,
-    ProfileComponent
+    ProfileComponent,
+    CurrentCartComponent,
+    CheckoutComponent,
+    PastorderComponent,
+    UpdateprofileComponent
   ],
   // whatever modules we need to import, we'll include those in this array:
   imports: [

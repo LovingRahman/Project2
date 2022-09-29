@@ -28,6 +28,8 @@ export class ProfileComponent implements OnInit {
     
     }
 
+    this.getById()
+
   }
 
   
