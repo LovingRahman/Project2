@@ -1,0 +1,18 @@
+What feature/aspect of your project are you most proud of?
+I am most proud of figuring out how to interate from an array inside of an array and displaying that on screen.
+
+What are some challenges you faced while working on the project?
+Figuring out how the relational database should be structured and uploading to AWS.
+
+What would you work on if you had another week on project 2?
+Creating a better user interface. uploading to AWS. more error catching.
+
+What would you do differently if you could start the project over?
+work on different databse relations. hopefully make one that isn't so hard to work with.
+
+What do you wish you knew at the start of the project (either about the development process or the technologies used)?
+I wish I knew how components in angular worked together better.
+
+How can you apply these lessons to project 3?
+I know the first thing I need to get down is how the entities must realte inorder to stream line queries. I know how the components interact with each other
+Overall I know what I am weakest on and should work on first.
